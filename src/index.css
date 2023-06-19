@@ -1,13 +1,113 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.header {
+  width: 100%;
+}
+.game-board {
+  background-color: white;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.card {
+  cursor: pointer;
+  width: 100px;
+  height: 150px;
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.front {
+  background-color: #fff;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-color: black;
+  color: #fff;
+}
+
+.content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card.flipped .inner {
+  transform: rotateY(180deg);
+}
+.winner {
+  font-size: 2em;
+  color: green;
+  animation: winner-animation 2s ease-in-out;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes winner-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.title {
+  align-self: center;
+  font-size: 40px;
+}
+button {
+  display: inline-block;
+  font-size: 18px;
+  padding: 1em 2em;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 35px;
+  transition: background 0.3s;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(to right, #1e90ff, #00bfff);
+}
+
+button:hover {
+  background: linear-gradient(to right, #00bfff, #1e90ff);
 }
