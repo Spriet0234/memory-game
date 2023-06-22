@@ -47,7 +47,7 @@ code {
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  border: 1px solid #000;
+  border: 1px solid black;
   border-radius: 10px;
 }
 
@@ -58,7 +58,7 @@ code {
 }
 
 .back {
-  background-color: black;
+  background-color: red;
   color: #fff;
 }
 
